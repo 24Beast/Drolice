@@ -6,8 +6,8 @@ from frovedis.mllib.linear_model import LogisticRegression # frovedis
 #from sklearn.linear_model import LogisticRegression # sklearn
 
 FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
-X_train=np.load('/usr/uhome/HT0011')
-y_train=np.load('/usr/uhome/HT0011')
+X_train=np.load('/usr/uhome/HT0011/X_Train.npy')
+y_train=np.load('/usr/uhome/HT0011/y_train.npy')
 y_train = y_train.astype(np.float64)
 y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
 
