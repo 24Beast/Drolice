@@ -13,7 +13,7 @@ y_train = y_train.astype(np.float64)
 y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
 
 C = 1.0
-max_iter=100
+max_iter=10000
 solver = "sag"
 
 clf = LogisticRegression(random_state=0, solver=solver, C=C, max_iter=max_iter).fit(X_train, y_train)
