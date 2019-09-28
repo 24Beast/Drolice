@@ -14,7 +14,7 @@ y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
 
 C = 1.0
 max_iter=100
-solver = "liblinear"
+solver = "sag"
 
 clf = LogisticRegression(random_state=0, solver=solver, C=C, max_iter=max_iter).fit(X_train, y_train)
 y_pred = clf.predict(X_train)
