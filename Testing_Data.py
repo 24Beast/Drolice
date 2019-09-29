@@ -15,7 +15,7 @@ y=y[:,0]
 l=len(X)
 while(i<5):
     X_train=np.load('/usr/uhome/HT0011/X_Train'+str(i)+'.npy')
-    y_train=np.load('/usr/uhome/HT0011/y_train'+str(i)+'.npy')
+    y_train=np.load('/usr/uhome/HT0011/Drolice/y_train'+str(i)+'.npy')
     y_train=y_train[:,0]
     y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
     start=time.time()
