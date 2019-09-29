@@ -9,7 +9,7 @@ from frovedis.mllib.svm import LinearSVC
 
 FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
 i=0
-l=[]
+li=[]
 X=np.load('/usr/uhome/HT0011/X_Train.npy')
 y=np.load('/usr/uhome/HT0011/y_train.npy')
 y=y[:,0]
@@ -26,6 +26,6 @@ while(i<5):
     end=time.time()
     data={"score":score,"Model":"SVC","time":end-start}
     json_data=json.dumps(data)
-    l.append(data)
+    li.append(data)
 print(l)
 FrovedisServer.shut_down() # frovedis
