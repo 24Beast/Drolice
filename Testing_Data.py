@@ -4,6 +4,7 @@ import pickle
 import time
 import json
 from frovedis.exrpc.server import FrovedisServer # frovedis
+from frovedis.mllib.svm import LinearSVC
 #from sklearn.linear_model import LogisticRegression # sklearn
 
 FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
@@ -19,7 +20,7 @@ while(i<5):
 #    y_train=y_train[:,0]
     y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
     start=time.time()
-    clf = pickle.load("/usr/uhome/HT0011/model/Model1.sav")
+    clf = LinearSVC().fit(X_train, y_train)
     y_pred = clf.predict(X_train)
     score = 1.0 * sum(y_train == y_pred) / len(y_train)
     end=time.time()
