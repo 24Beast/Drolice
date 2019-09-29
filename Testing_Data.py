@@ -19,5 +19,5 @@ while True:
     end=time.time()
     data={"score":y_pred,"time":end-start}
     json_data=json.dumps(data)
-    
+    json_data_write=json.dump(data,"/usr/uhome/HT0011/output")
 FrovedisServer.shut_down() # frovedis
