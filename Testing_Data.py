@@ -1,6 +1,5 @@
 import os
 import numpy as np
-import pickle
 import time
 import json
 from frovedis.exrpc.server import FrovedisServer # frovedis
@@ -19,7 +18,7 @@ X_train=np.load('/usr/uhome/HT0011/X_Train0.npy')
 start=time.time()
 y_pred = clf.predict(X_train)
 end=time.time()
-data={"score":y_pred,"time":end-start}
+data={"score":y_pred}
 json_data=json.dumps(data)
 json_data_write=json.dump(data,"/usr/uhome/HT0011/output")
 FrovedisServer.shut_down() # frovedis
