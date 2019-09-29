@@ -14,9 +14,9 @@ y=np.load('/usr/uhome/HT0011/y_train.npy')
 y=y[:,0]
 l=len(X)
 while(i<5):
-    X_train=X[i*int(l/5):(i+1)*int(l/5),:]
-    y_train=y[i*int(l/5):(i+1)*int(l/5)]
-    y_train = y_train.astype(np.float64)
+    X_train=np.load('/usr/uhome/HT0011/X_Train'+i+'.npy')
+    y_train=np.load('/usr/uhome/HT0011/y_train'i+'.npy')
+    y_train=y_train[:,0]
     y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
     start=time.time()
     clf = pickle.load("/usr/uhome/HT0011/model/Model1.sav")
