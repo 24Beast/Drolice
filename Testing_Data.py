@@ -8,6 +8,7 @@ from frovedis.exrpc.server import FrovedisServer # frovedis
 
 FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
 i=0
+l=[]
 while(i<5):
     X_train=np.load('/usr/uhome/HT0011/Drolice/X_Train'+i+'.npy')
     y_train=np.load('/usr/uhome/HT0011/Drolice/y_train'+i+'.npy')
@@ -21,6 +22,6 @@ while(i<5):
     end=time.time()
     data={"score":score,"Model":"SVC","time":end-start}
     json_data=json.dumps(data)
-    print(json_data)
-    
+    l.append(data)
+print(l)
 FrovedisServer.shut_down() # frovedis
