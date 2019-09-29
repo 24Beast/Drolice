@@ -10,8 +10,8 @@ FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER']
 i=0
 l=[]
 while(i<5):
-    X_train=np.load('/usr/uhome/HT0011/Drolice/X_Train'+i+'.npy')
-    y_train=np.load('/usr/uhome/HT0011/Drolice/y_train'+i+'.npy')
+    X_train=np.load('/usr/uhome/HT0011/Drolice/X_Train'+str(i)+'.npy')
+    y_train=np.load('/usr/uhome/HT0011/Drolice/y_train'+str(i)+'.npy')
     y_train=y_train[:,0]
     y_train = y_train.astype(np.float64)
     y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
