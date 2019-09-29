@@ -17,7 +17,6 @@ start=time.time()
 clf = LinearSVC().fit(X_train, y_train)
 X_train=np.load('/usr/uhome/HT0011/X_Train0.npy')
 start=time.time()
-clf = pickle.load(open("/usr/uhome/HT0011/model/Model1.sav","rb"))
 y_pred = clf.predict(X_train)
 end=time.time()
 data={"score":y_pred,"time":end-start}
