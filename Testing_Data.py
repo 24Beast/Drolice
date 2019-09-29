@@ -19,9 +19,9 @@ while(i<5):
     y_pred = clf.predict(X_train)
     score = 1.0 * sum(y_train == y_pred) / len(y_train)
     end=time.time()
-    FrovedisServer.shut_down() # frovedis
-    
-    
     data={"score":score,"Model":"SVC","time":end-start}
     json_data=json.dumps(data)
     print(json_data)
+    FrovedisServer.shut_down() # frovedis
+    
+    
