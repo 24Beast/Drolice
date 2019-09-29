@@ -9,10 +9,13 @@ from frovedis.exrpc.server import FrovedisServer # frovedis
 FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
 i=0
 l=[]
+X=np.load('/usr/uhome/HT0011/X_Train.npy')
+y=np.load('/usr/uhome/HT0011/y_train.npy')
+y=y[:,0]
+l=len(X)
 while(i<5):
-    X_train=np.load('/usr/uhome/HT0011/Drolice/X_Train.npy')
-    y_train=np.load('/usr/uhome/HT0011/Drolice/y_train.npy')
-    y_train=y_train[:,0]
+    X_train=X[i*int(l/5):(i+1)*int(l/5),:]
+    y_train=y[i*int(l/5):(i+1)*int(l/5)]
     y_train = y_train.astype(np.float64)
     y_train = 2 * y_train - 1  # frovedis only supports labels of {-1, 1}
     start=time.time()
