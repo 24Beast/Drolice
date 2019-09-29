@@ -6,9 +6,9 @@ import json
 from frovedis.exrpc.server import FrovedisServer # frovedis
 #from sklearn.linear_model import LogisticRegression # sklearn
 
+FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
 i=0
 while(i<5):
-    FrovedisServer.initialize("mpirun -np 4 {}".format(os.environ['FROVEDIS_SERVER'])) # frovedis
     X_train=np.load('/usr/uhome/HT0011/Drolice/X_Train'+i+'.npy')
     y_train=np.load('/usr/uhome/HT0011/Drolice/y_train'+i+'.npy')
     y_train=y_train[:,0]
@@ -22,6 +22,5 @@ while(i<5):
     data={"score":score,"Model":"SVC","time":end-start}
     json_data=json.dumps(data)
     print(json_data)
-    FrovedisServer.shut_down() # frovedis
     
-    
+FrovedisServer.shut_down() # frovedis
